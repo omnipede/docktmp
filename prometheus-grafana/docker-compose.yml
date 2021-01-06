@@ -1,0 +1,34 @@
+version: '3.7'
+
+# Grafana <--> Prometheus network
+networks:
+  monitoring:
+  
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    # Prometheus 설정파일
+    volumes:
+      - ./prometheus:/etc/prometheus
+    ports: 
+      - 9090:9090
+    networks: 
+      - monitoring
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    # Grafana data (dashboard 등) 저장 위치
+    volumes: 
+      - ./grafana/data:/var/lib/grafana
+    # Grafana 계정정보
+    environment: 
+      - GF_SECURITY_ADMIN_USER=user
+      - GF_SECURITY_ADMIN_PASSWORD=password
+    networks:
+      - monitoring
+    
