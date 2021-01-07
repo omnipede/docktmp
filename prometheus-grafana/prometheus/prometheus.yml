@@ -1,7 +1,10 @@
 scrape_configs:
   # JOB
-  - job_name: 'YOUR_JOB_NAME'
+  - job_name: 'job'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
       - targets: ['YOUR_HOST_IP:YOUR_PORT']
+    basic_auth:
+      username: 'foobar'
+      password: 'foobar'
