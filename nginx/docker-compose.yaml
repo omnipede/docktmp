@@ -1,0 +1,18 @@
+version: '3.2'
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.16-alpine
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/log:/var/log/nginx
+  sample-server:
+    container_name: sample-server
+    image: sample-server
+    ports:
+      - 8080:8080
+
