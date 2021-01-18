@@ -8,11 +8,6 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/conf.d:/etc/nginx/conf.d
       - ./data/log:/var/log/nginx
-  sample-server:
-    container_name: sample-server
-    image: sample-server
-    ports:
-      - 8080:8080
-
+      - ./data/nginx.conf:/etc/nginx/nginx.conf
