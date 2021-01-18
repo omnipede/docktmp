@@ -8,7 +8,7 @@ $ docker build . --tag sample-server
 $ docker run -p 8080:8080 sample-server
 ```
 
-## 실행 방법 (plain)
+## 실행 방법 (without docker)
 ```
 $ ./gradlew build
 $ java -jar ./build/libs/*.jar
