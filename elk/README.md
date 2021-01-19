@@ -6,9 +6,3 @@
 ```
 $ docker-compose up
 ```
-
-* 샘플 서버 실행
-```
-$ ./gradlew 
-```
-##
