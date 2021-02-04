@@ -29,7 +29,7 @@ public class SampleController {
 
         // 더 자세한 방법은
         // https://github.com/logstash/logstash-logback-encoder#custom-fields 참조
-        logger.info(append("parameterValue", value), "Log parameter value");
+        logger.info(append("value", value), "Log parameter value");
 
         return t;
     }
